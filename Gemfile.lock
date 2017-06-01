@@ -73,6 +73,7 @@ GEM
     mustermann (1.0.0)
     nokogiri (1.7.2)
       mini_portile2 (~> 2.1.0)
+    pg (0.20.0)
     public_suffix (2.0.5)
     rack (2.0.3)
     rack-protection (2.0.0)
@@ -110,6 +111,7 @@ DEPENDENCIES
   capybara
   data_mapper
   dm-postgres-adapter
+  pg
   rspec
   sinatra
 
