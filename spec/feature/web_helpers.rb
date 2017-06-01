@@ -13,3 +13,11 @@ def create_bleep_link
   fill_in 'tag', with: 'fun'
   click_button 'submit'
 end
+
+def create_link_with_multiple_tags
+  visit('/links/new')
+  fill_in 'title', with: 'Facebook'
+  fill_in 'url', with: 'https://en-gb.facebook.com/'
+  fill_in 'tag', with: 'social, time-consuming, blue'
+  click_button 'submit'
+end
