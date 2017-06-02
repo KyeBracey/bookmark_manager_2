@@ -5,7 +5,10 @@ feature 'Adding a tag to a link' do
     fill_in 'url', with: 'http://www.Bleep.com'
     fill_in 'tag', with: 'fun'
     click_button 'submit'
-    expect(page).to have_content 'fun'
+    link = Link.first
+    within 'ul#links' do
+      expect(link.tags.map(&:name)).to include('fun')
+    end
   end
 
 end
