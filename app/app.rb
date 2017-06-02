@@ -1,18 +1,19 @@
 
 ENV['RACK_ENV'] ||= "development"
 
-require_relative './models/link'
-require_relative './models/tag'
-require_relative './models/user'
+
 require_relative 'datamapper_setup'
 require 'sinatra/base'
 
 
 class BookmarkManager < Sinatra::Base
   enable :sessions
+  set :session_secret, 'UTNc2QO49ClxtxS9RFLkpCeUZBg='
 
-  def current_user
-    User.first(id: session[:user_id])
+  helpers do
+    def current_user
+      @current_user ||= User.first(id: session[:user_id])
+    end
   end
 
 
@@ -27,7 +28,7 @@ class BookmarkManager < Sinatra::Base
   end
 
   get '/links' do
-    @current_user = current_user
+    current_user
     @links = Link.all
     erb :'links/index'
   end
