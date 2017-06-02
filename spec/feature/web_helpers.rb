@@ -21,3 +21,10 @@ def create_link_with_multiple_tags
   fill_in 'tag', with: 'social, time-consuming, blue'
   click_button 'submit'
 end
+
+def signup
+  visit '/'
+  fill_in 'email_address', with: 'bob@gmail.com'
+  fill_in 'password', with: 'passwordy'
+  click_button 'submit'
+end
