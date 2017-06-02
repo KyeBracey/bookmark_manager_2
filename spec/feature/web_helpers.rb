@@ -26,5 +26,14 @@ def signup
   visit '/'
   fill_in 'email_address', with: 'bob@gmail.com'
   fill_in 'password', with: 'passwordy'
+  fill_in 'password_confirmation', with: 'passwordy'
+  click_button 'submit'
+end
+
+def signup_mismatching_confirmation
+  visit '/'
+  fill_in 'email_address', with: 'bob@gmail.com'
+  fill_in 'password', with: 'passwordy'
+  fill_in 'password_confirmation', with: 'anything'
   click_button 'submit'
 end

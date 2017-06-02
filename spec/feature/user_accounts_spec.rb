@@ -1,9 +1,8 @@
 feature ' user accounts' do
 
   scenario ' user count increases by one' do
-    expect(User.count).to eq(0)
     signup
-    expect(User.count).to eq(1)
+    expect{signup}.to change{User.count}.by(1)
   end
 
   scenario 'user signs up sent to links page' do
@@ -15,5 +14,5 @@ feature ' user accounts' do
     signup
     expect(page).to have_content('Welcome, bob@gmail.com')
   end
-  
+
 end
