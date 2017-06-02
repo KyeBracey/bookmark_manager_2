@@ -1,4 +1,8 @@
-<h1> Links </h1>
+<% if session[:user_id] %>
+  <h1> Welcome, <%= @current_user.email_address %> </h1>
+<% end %>
+
+<h2> Links </h2>
 
 <ul id='links'>
   <% @links.each do |link| %>

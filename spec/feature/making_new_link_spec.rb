@@ -7,7 +7,6 @@ feature 'Adding new links' do
     fill_in 'url', with: 'http://www.Bleep.com'
     click_button 'submit'
     expect(page).to have_content 'Bleep'
-    # DatabaseCleaner.clean
   end
 
 end
